@@ -16,10 +16,15 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
-    protected $fillable = [
+    protected $fillable = [ //estos son los campos que se arrastran nueva mente (se vuelven a llenar) despues de guardar o editar
         'name',
         'email',
         'password',
+        'country_id',
+        'state_id',
+        'city_id',
+        'address',
+        'postal_code'
     ];
 
     /**
@@ -43,5 +48,10 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    public function country() //crea la relacion entre user y country
+    {
+        return $this->belongsTo(Country::class);
     }
 }

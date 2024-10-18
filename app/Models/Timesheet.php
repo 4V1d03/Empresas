@@ -9,6 +9,7 @@ class Timesheet extends Model
 {
 
     use HasFactory;
+    protected $guarded = []; //desactiva la funcion de mass assignment
 
     public function user()
     {
